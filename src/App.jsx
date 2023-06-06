@@ -1,10 +1,17 @@
-import React from "react";
+import { useSelector } from "react-redux";
+
 import Counter from "./components/Counter";
+import Welcome from "./components/Welcome";
+import Navbar from "./components/Navbar";
 
 const App = () => {
+  const isLogin = useSelector((state) => state.auth.isLogin);
+
   return (
     <>
-      <Counter />
+      <Navbar />
+      {!isLogin && <Welcome />}
+      {isLogin && <Counter />}
     </>
   );
 };

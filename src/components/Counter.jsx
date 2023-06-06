@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { counterActions } from "../store/index";
+import { counterActions } from "../store/counterReducer";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const isShow = useSelector((state) => state.isShow);
+  const counter = useSelector((state) => state.counter.counter);
+  const isShow = useSelector((state) => state.counter.isShow);
 
   const increaseHandler = () => {
     dispatch(counterActions.increase());
